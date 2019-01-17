@@ -1,5 +1,6 @@
 package com.github.gustavosci.testrabbitspring;
 
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -8,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.github.gustavosci.testrabbitspring.messaging.OrderQueueSender;
 
 @SpringBootApplication
+@EnableRabbit // requisito para funcionar listener (consumer)
 public class TestRabbitSpringApplication implements CommandLineRunner {
 
     @Autowired
@@ -19,8 +21,7 @@ public class TestRabbitSpringApplication implements CommandLineRunner {
 
     @Override
     public void run(final String... args) throws Exception {
-        System.out.println("Enviando mensagem para a fila");
-        sender.send("teste");
+        sender.send("Teste de envio da mensagem para a fila :)");
     }
 }
 

@@ -14,7 +14,8 @@ public class OrderQueueSender {
     @Autowired
     private Queue queue;
 
-    public void send(String order) {
-        rabbitTemplate.convertAndSend(this.queue.getName(), order);
+    public void send(final String order) {
+        System.out.println("Enviando mensagem para a fila: " + order);
+        rabbitTemplate.convertAndSend(queue.getName(), order);
     }
 }
