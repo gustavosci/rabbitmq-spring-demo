@@ -1,0 +1,21 @@
+management:
+  port: 0
+
+server:
+  compression:
+    enabled: true
+  context-path: /rabbit-test
+  port: 8082
+
+queue:
+  order:
+    name: OrderQueue
+
+spring:
+  messages:
+    basename: i18n/messages
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
